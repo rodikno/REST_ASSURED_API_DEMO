@@ -3,6 +3,7 @@ package org.example.helpers;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.example.models.Pet;
 
 public class PetApiHelper {
 
@@ -15,7 +16,7 @@ public class PetApiHelper {
     }
 
     // Method to send a POST request to add a pet
-    public static Response addPet(Object pet) {
+    public static Response addPet(Pet pet) {
         return createRequest()
                 .body(pet) // Send the DTO object; it will be serialized automatically
                 .post("/pet") // Endpoint for adding a pet

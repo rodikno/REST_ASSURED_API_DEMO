@@ -16,7 +16,6 @@ public class BaseTest {
     public void commonSetup() {
         // Set the base URI for RestAssured
         RestAssured.baseURI = BASE_URI;
-
         RestAssured.filters(
                 new RequestLoggingFilter(LogDetail.ALL), // Logs all details of the request
                 new ResponseLoggingFilter(LogDetail.ALL) // Logs all details of the response

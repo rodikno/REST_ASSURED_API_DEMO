@@ -15,6 +15,13 @@ public class Main {
 
 
         Pet pet = new Pet();
+
+
+
+        Pet build = pet.toBuilder()
+                .name("MyPet")
+                .status("available")
+                .build();
     }
 
 }

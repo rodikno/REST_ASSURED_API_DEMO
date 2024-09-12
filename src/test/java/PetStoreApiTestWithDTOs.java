@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class PetStoreApiTestWithDTOs extends BaseTest {
 
@@ -17,6 +18,7 @@ public class PetStoreApiTestWithDTOs extends BaseTest {
     public void testAddPetToStore() {
         // Define the pet details as a DTO
         Pet pet = new Pet(PET_ID, "Buddy", "available");
+
 
         // Send the POST request to add the pet
         Response response = given()
@@ -42,7 +44,7 @@ public class PetStoreApiTestWithDTOs extends BaseTest {
                 .when()
                 .get("/pet/" + PET_ID) // Make a GET request to the specific endpoint
                 .then()
-                .statusCode(200) // Assert the status code is 200 (OK)
+                .statusCode(200)
                 .extract()
                 .response();
 

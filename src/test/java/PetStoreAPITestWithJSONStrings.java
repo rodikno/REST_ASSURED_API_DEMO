@@ -1,5 +1,4 @@
 import io.restassured.response.Response;
-import org.example.models.Pet;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
