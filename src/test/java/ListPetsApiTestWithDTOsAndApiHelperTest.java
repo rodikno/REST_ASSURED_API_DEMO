@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class ListPetsApiTestWithDTOsAndApiHelper extends BaseTest {
+public class ListPetsApiTestWithDTOsAndApiHelperTest extends BaseTest {
 
 
     @DataProvider(name = "statuses")

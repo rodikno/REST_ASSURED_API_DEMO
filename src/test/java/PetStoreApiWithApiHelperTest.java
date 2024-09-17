@@ -1,13 +1,10 @@
 import io.restassured.response.Response;
+import org.example.helpers.PetApiHelper;
 import org.example.models.Pet;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-
-public class PetStoreApiTestWithDTOs extends BaseTest {
-
+public class PetStoreApiWithApiHelperTest extends BaseTest {
 
 
     // Pet ID to use in tests
@@ -19,17 +16,7 @@ public class PetStoreApiTestWithDTOs extends BaseTest {
         // Define the pet details as a DTO
         Pet pet = new Pet(PET_ID, "Buddy", "available");
 
-
-        // Send the POST request to add the pet
-        Response response = given()
-                .spec(requestSpec) // Apply the predefined request specification
-                .body(pet) // Add the pet JSON as the request body
-                .when()
-                .post("/pet") // Send POST request to /pet endpoint
-                .then()
-                .statusCode(200) // Assert the status code is 200 (OK)
-                .extract()
-                .response();
+        Response response = PetApiHelper.addPet(pet);
 
         // Assert that the pet's ID matches the expected ID
         long responsePetId = response.jsonPath().getLong("id");
@@ -39,14 +26,7 @@ public class PetStoreApiTestWithDTOs extends BaseTest {
     @Test(dependsOnMethods = "testAddPetToStore") // Ensure this test runs after adding the pet
     public void testCheckPetExists() {
         // Send the GET request to check if the pet exists
-        Response response = given()
-                .spec(requestSpec) // Apply the predefined request specification
-                .when()
-                .get("/pet/" + PET_ID) // Make a GET request to the specific endpoint
-                .then()
-                .statusCode(200)
-                .extract()
-                .response();
+        Response response = PetApiHelper.getPetById(PET_ID);
 
         // Validate that the returned pet ID matches the expected ID
         long responsePetId = response.jsonPath().getLong("id");

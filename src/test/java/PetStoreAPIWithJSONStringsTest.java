@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class PetStoreAPITestWithJSONStrings extends BaseTest {
+public class PetStoreAPIWithJSONStringsTest extends BaseTest {
 
 
     // Pet ID to use in tests
