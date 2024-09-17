@@ -19,6 +19,7 @@ public class PetStoreAPIWithJSONStringsTest extends BaseTest {
                 PET_ID, "Buddy", "available"
         );
 
+
         // Send the POST request to add the pet
         Response response = given()
                 .spec(requestSpec) // Apply the predefined request specification
