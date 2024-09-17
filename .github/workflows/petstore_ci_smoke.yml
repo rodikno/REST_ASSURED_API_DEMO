@@ -31,8 +31,8 @@ jobs:
     - name: Test with Maven
       run: mvn -B test --file pom.xml
     - name: 'Upload test results'
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       if: always() # this ensures that the artifacts are uploaded even if the previous step (tests) fail
       with:
         name: test-results
-        path: target/surefire-reports/index.html
+        path: target/surefire-reports/**/*
