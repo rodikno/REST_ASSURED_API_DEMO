@@ -1,0 +1,13 @@
+# Run container
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:alpine3.20-jdk21
+
+# User and password
+admin
+d0935ec9993f4e9a8678495eefc7a23b
+
+# Attach as sudo to the container
+docker exec -u root -it [CONTAINER_ID] /bin/sh
+
+# Install Maven
+ apk update
+ apk add maven
