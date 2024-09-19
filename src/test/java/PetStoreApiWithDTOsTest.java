@@ -15,6 +15,14 @@ public class PetStoreApiWithDTOsTest extends BaseTest {
 
     @Test
     public void testAddPetToStore() {
+
+        String environmentValue = System.getenv("ENVIRONMENT");
+        if (environmentValue != null) {
+            System.out.println("The value of ENVIRONMENT is: " + environmentValue);
+        } else {
+            System.out.println("The ENVIRONMENT variable is not set.");
+        }
+
         // Define the pet details as a DTO
         Pet pet = new Pet(PET_ID, "Buddy", "available");
 
