@@ -6,8 +6,28 @@ admin
 d0935ec9993f4e9a8678495eefc7a23b
 
 # Attach as sudo to the container
-docker exec -u root -it [CONTAINER_ID] /bin/sh
+docker exec -u root -it 0dc7a4649504 /bin/sh
 
 # Install Maven
  apk update
  apk add maven
+
+
+ # Remove container and image and volume
+ docker rm [container_id]
+ docker rmi jenkins/jenkins:alpine3.20-jdk21
+ docker volume rm jenkins_home
+
+
+
+ Source Code management
+ https://github.com/rodikno/REST_ASSURED_API_DEMO.git
+
+ Invoke top-level Maven targets
+ test
+
+ Archive the artifacts
+ target/**/*
+
+ Publish Junit tests report
+ target/surefire-reports/junitreports/*.xml
